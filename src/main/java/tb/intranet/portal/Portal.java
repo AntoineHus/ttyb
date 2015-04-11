@@ -1,14 +1,14 @@
-package tb.intranet.portail;
+package tb.intranet.portal;
 
 import org.openqa.selenium.WebDriver;
 import tb.intranet.cas.CAS;
 import tb.intranet.cas.exceptions.UserNotLoggedException;
-import tb.intranet.portail.models.AcademicYear;
-import tb.intranet.portail.models.Course;
-import tb.intranet.portail.models.Exam;
-import tb.intranet.portail.parsers.CoursesPageParser;
-import tb.intranet.portail.parsers.ExamPageParser;
-import tb.intranet.portail.parsers.StudentRecordPageParser;
+import tb.intranet.portal.models.AcademicYear;
+import tb.intranet.portal.models.Course;
+import tb.intranet.portal.models.Exam;
+import tb.intranet.portal.parsers.CoursesPageParser;
+import tb.intranet.portal.parsers.ExamPageParser;
+import tb.intranet.portal.parsers.StudentRecordPageParser;
 
 import java.util.ArrayList;
 

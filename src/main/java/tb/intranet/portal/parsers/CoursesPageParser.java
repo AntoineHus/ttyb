@@ -1,10 +1,10 @@
-package tb.intranet.portail.parsers;
+package tb.intranet.portal.parsers;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-import tb.intranet.portail.models.Course;
+import tb.intranet.portal.models.Course;
 
 import java.util.ArrayList;
 

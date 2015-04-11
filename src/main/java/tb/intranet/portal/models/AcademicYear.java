@@ -1,4 +1,4 @@
-package tb.intranet.portail.models;
+package tb.intranet.portal.models;
 
 import java.util.Date;
 
