@@ -44,7 +44,7 @@ public class StudentRecordPageParser {
             academicYear.setSchoolYear(cols.get(0).text());
             academicYear.setProgramme(cols.get(1).text());
             academicYear.setCampus(cols.get(2).text());
-            academicYear.setGradesURL(cols.get(3).select("a").first().attr("href"));
+            academicYear.setCoursesURL(cols.get(3).select("a").first().attr("href"));
 
             DateFormat format = new SimpleDateFormat("dd/MM/yy", Locale.ENGLISH);
 

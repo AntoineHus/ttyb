@@ -1,8 +1,5 @@
 package tb.intranet.portail.models;
 
-import java.util.ArrayList;
-import java.util.Collection;
-
 public class Course {
     // Course description
     private String code;
@@ -19,12 +16,11 @@ public class Course {
     private Double frenchIntermediatesAverage = 0.00;
 
     // Exams
-    private ArrayList<Exam> exams;
+    private String examsURL;
 
     public Course(String code, String subject) {
         this.code = code;
         this.subject = subject;
-        this.exams = new ArrayList<Exam>();
     }
 
     public String getCode() {
@@ -83,16 +79,12 @@ public class Course {
         this.frenchIntermediatesAverage = frenchIntermediatesAverage;
     }
 
-    public ArrayList<Exam> getExams() {
-        return exams;
+    public String getExamsURL() {
+        return examsURL;
     }
 
-    public void addExam(Exam e) {
-        this.exams.add(e);
-    }
-
-    public void addExams(Collection<Exam> e) {
-        this.exams.addAll(e);
+    public void setExamsURL(String examsURL) {
+        this.examsURL = examsURL;
     }
 
     @Override
@@ -106,7 +98,7 @@ public class Course {
                 ", frenchGlobalAverage=" + frenchGlobalAverage +
                 ", frenchFinalsAverage=" + frenchFinalsAverage +
                 ", frenchIntermediatesAverage=" + frenchIntermediatesAverage +
-                ", exams=" + exams +
+                ", examsURL='" + examsURL + '\'' +
                 '}';
     }
 }
