@@ -1,0 +1,112 @@
+package tb.intranet.portail.models;
+
+import java.util.ArrayList;
+import java.util.Collection;
+
+public class Course {
+    // Course description
+    private String code;
+    private String subject;
+
+    // ECTS system
+    private Integer ectsMaximumCredits = 0;
+    private Integer ectsObtainedCredits = 0;
+    private String  ectsGrade = "";
+
+    // French grading system
+    private Double frenchGlobalAverage = 0.00;
+    private Double frenchFinalsAverage = 0.00;
+    private Double frenchIntermediatesAverage = 0.00;
+
+    // Exams
+    private ArrayList<Exam> exams;
+
+    public Course(String code, String subject) {
+        this.code = code;
+        this.subject = subject;
+        this.exams = new ArrayList<Exam>();
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public String getSubject() {
+        return subject;
+    }
+
+    public Integer getEctsMaximumCredits() {
+        return ectsMaximumCredits;
+    }
+
+    public void setECTSMaximumCredits(Integer ectsMaximumCredits) {
+        this.ectsMaximumCredits = ectsMaximumCredits;
+    }
+
+    public Integer getECTSObtainedCredits() {
+        return ectsObtainedCredits;
+    }
+
+    public void setECTSObtainedCredits(Integer ectsObtainedCredits) {
+        this.ectsObtainedCredits = ectsObtainedCredits;
+    }
+
+    public String getECTSGrade() {
+        return ectsGrade;
+    }
+
+    public void setECTSGrade(String ectsGrade) {
+        this.ectsGrade = ectsGrade;
+    }
+
+    public Double getFrenchGlobalAverage() {
+        return frenchGlobalAverage;
+    }
+
+    public void setFrenchGlobalAverage(Double frenchGlobalAverage) {
+        this.frenchGlobalAverage = frenchGlobalAverage;
+    }
+
+    public Double getFrenchFinalsAverage() {
+        return frenchFinalsAverage;
+    }
+
+    public void setFrenchFinalsAverage(Double frenchFinalsAverage) {
+        this.frenchFinalsAverage = frenchFinalsAverage;
+    }
+
+    public Double getFrenchIntermediatesAverage() {
+        return frenchIntermediatesAverage;
+    }
+
+    public void setFrenchIntermediatesAverage(Double frenchIntermediatesAverage) {
+        this.frenchIntermediatesAverage = frenchIntermediatesAverage;
+    }
+
+    public ArrayList<Exam> getExams() {
+        return exams;
+    }
+
+    public void addExam(Exam e) {
+        this.exams.add(e);
+    }
+
+    public void addExams(Collection<Exam> e) {
+        this.exams.addAll(e);
+    }
+
+    @Override
+    public String toString() {
+        return "Course{" +
+                "code='" + code + '\'' +
+                ", subject='" + subject + '\'' +
+                ", ectsMaximumCredits=" + ectsMaximumCredits +
+                ", ectsObtainedCredits=" + ectsObtainedCredits +
+                ", ectsGrade='" + ectsGrade + '\'' +
+                ", frenchGlobalAverage=" + frenchGlobalAverage +
+                ", frenchFinalsAverage=" + frenchFinalsAverage +
+                ", frenchIntermediatesAverage=" + frenchIntermediatesAverage +
+                ", exams=" + exams +
+                '}';
+    }
+}
