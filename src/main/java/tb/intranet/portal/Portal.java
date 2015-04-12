@@ -7,7 +7,7 @@ import tb.intranet.portal.models.AcademicYear;
 import tb.intranet.portal.models.Course;
 import tb.intranet.portal.models.Exam;
 import tb.intranet.portal.parsers.CoursesPageParser;
-import tb.intranet.portal.parsers.ExamPageParser;
+import tb.intranet.portal.parsers.ExamsPageParser;
 import tb.intranet.portal.parsers.StudentRecordPageParser;
 
 import java.util.ArrayList;
@@ -44,9 +44,9 @@ public class Portal extends CAS {
         ensureUserIsLogged();
 
         driver.get(baseURL + "/portal/pls/portal/" + course.getExamsURL());
-        ExamPageParser examPageParser = new ExamPageParser(driver.getPageSource());
+        ExamsPageParser examsPageParser = new ExamsPageParser(driver.getPageSource());
 
-        return examPageParser.getExams();
+        return examsPageParser.getExams();
     }
 
     private StudentRecordPageParser getStudentRecordPageParser() {

@@ -8,7 +8,6 @@ version = '1.0'
 mainClassName = 'tb.cli.CLI'
 applicationDefaultJvmArgs = ["-Djava.util.logging.config.file=logging.properties"]
 
-
 task fatJar(type: Jar) {
     manifest {
         attributes 'Implementation-Title': 'ttyB Command Line Interface',
@@ -18,6 +17,11 @@ task fatJar(type: Jar) {
     baseName = project.name + '-all'
     from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
     with jar
+}
+
+test {
+    useTestNG()
+    include '**/*Test*.*'
 }
 
 repositories {
@@ -37,5 +41,5 @@ dependencies {
     compile group: 'ch.qos.logback', name: 'logback-classic', version: '1.1.3'
     compile group: 'ch.qos.logback', name: 'logback-core',    version: '1.1.3'
 
-    testCompile group: 'junit', name: 'junit', version: '4.11'
+    testCompile group: 'org.testng', name: 'testng', version: '6.8.21'
 }

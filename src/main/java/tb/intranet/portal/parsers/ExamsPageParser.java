@@ -10,14 +10,14 @@ import tb.intranet.portal.models.Exam;
 
 import java.util.ArrayList;
 
-public class ExamPageParser {
+public class ExamsPageParser {
     private final static Logger LOGGER = LoggerFactory.getLogger(CoursesPageParser.class);
     private Document document;
 
     // For caching results
     private ArrayList<Exam> exams;
 
-    public ExamPageParser(String html) {
+    public ExamsPageParser(String html) {
         document = Jsoup.parse(html);
     }
 
