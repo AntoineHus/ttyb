@@ -28,7 +28,7 @@ public class CoursesPageParser {
             return courses;
         }
 
-        Element table = document.select("table").get(2);
+        Element table = document.getElementsByAttributeValue("summary", "Printing Table Headers").last();
         Elements rows = table.select("tr");
 
         for (int i = 1; i < rows.size(); i++) {
@@ -66,15 +66,15 @@ public class CoursesPageParser {
             }
 
             try {
-                course.setFrenchFinalsAverage(Double.parseDouble(cols.get(8).text()));
+                course.setFrenchIntermediatesAverage(Double.parseDouble(cols.get(8).text()));
             } catch (Exception e) {
-                LOGGER.debug("Unable to parse french finals average for: " + code);
+                LOGGER.debug("Unable to parse french intermediates average for: " + code);
             }
 
             try {
-                course.setFrenchIntermediatesAverage(Double.parseDouble(cols.get(9).text()));
+                course.setFrenchFinalsAverage(Double.parseDouble(cols.get(9).text()));
             } catch (Exception e) {
-                LOGGER.debug("Unable to parse french intermediates average for: " + code);
+                LOGGER.debug("Unable to parse french finals average for: " + code);
             }
 
             courses.add(course);
