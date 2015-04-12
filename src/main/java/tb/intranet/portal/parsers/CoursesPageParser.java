@@ -4,11 +4,14 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import tb.intranet.portal.models.Course;
 
 import java.util.ArrayList;
 
 public class CoursesPageParser {
+    private final static Logger LOGGER = LoggerFactory.getLogger(CoursesPageParser.class);
     private Document document;
 
     // For caching results
@@ -45,7 +48,7 @@ public class CoursesPageParser {
                 course.setECTSObtainedCredits(Integer.parseInt(totalCredits[0]));
                 course.setECTSMaximumCredits(Integer.parseInt(totalCredits[1]));
             } catch (Exception e) {
-                System.err.println("Unable to parse ECTS credits for: " + code);
+                LOGGER.debug("Unable to parse ECTS credits for: " + code);
             }
 
             // Parse ECTS grade
@@ -59,19 +62,19 @@ public class CoursesPageParser {
             try {
                 course.setFrenchGlobalAverage(Double.parseDouble(cols.get(7).text()));
             } catch (Exception e) {
-                System.err.println("Unable to parse french global average for: " + code);
+                LOGGER.debug("Unable to parse french global average for: " + code);
             }
 
             try {
                 course.setFrenchFinalsAverage(Double.parseDouble(cols.get(8).text()));
             } catch (Exception e) {
-                System.err.println("Unable to parse french finals average for: " + code);
+                LOGGER.debug("Unable to parse french finals average for: " + code);
             }
 
             try {
                 course.setFrenchIntermediatesAverage(Double.parseDouble(cols.get(9).text()));
             } catch (Exception e) {
-                System.err.println("Unable to parse french intermediates average for: " + code);
+                LOGGER.debug("Unable to parse french intermediates average for: " + code);
             }
 
             courses.add(course);

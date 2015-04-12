@@ -4,6 +4,8 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 import tb.intranet.portal.models.AcademicYear;
 
@@ -14,6 +16,7 @@ import java.util.ArrayList;
 import java.util.Locale;
 
 public class StudentRecordPageParser {
+    private final static Logger LOGGER = LoggerFactory.getLogger(CoursesPageParser.class);
     private Document document;
     private Elements recordsTables;
 
@@ -51,13 +54,13 @@ public class StudentRecordPageParser {
             try {
                 academicYear.setStartDate(format.parse(cols.get(6).text()));
             } catch (ParseException e) {
-                System.err.println("Unable to parse start date for academic year: " + academicYear.getSchoolYear());
+                LOGGER.debug("Unable to parse start date for academic year: " + academicYear.getSchoolYear());
             }
 
             try {
                 academicYear.setEndDate(format.parse(cols.get(7).text()));
             } catch (ParseException e) {
-                System.err.println("Unable to parse end date for academic year: " + academicYear.getSchoolYear());
+                LOGGER.debug("Unable to parse end date for academic year: " + academicYear.getSchoolYear());
             }
 
             academicYears.add(academicYear);

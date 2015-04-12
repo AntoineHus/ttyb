@@ -8,6 +8,12 @@ public class MainCommand {
     @Parameter(names = "--help", description = "Display help", help = true)
     public boolean help;
 
+    @Parameter(names = "--debug", hidden = true)
+    public boolean debug;
+
+    @Parameter(names = "--verbose", description = "Display logs")
+    public boolean verbose;
+
     @Parameter(names = "--driver", description = "WebDriver to use")
     public String driver = "";
 

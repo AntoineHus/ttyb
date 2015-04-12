@@ -4,11 +4,14 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import tb.intranet.portal.models.Exam;
 
 import java.util.ArrayList;
 
 public class ExamPageParser {
+    private final static Logger LOGGER = LoggerFactory.getLogger(CoursesPageParser.class);
     private Document document;
 
     // For caching results
@@ -37,7 +40,7 @@ public class ExamPageParser {
             try {
                 exam.setFrenchGrade(Double.parseDouble(cols.get(7).text()));
             } catch (Exception e) {
-                System.err.println("Unable to parse grade for exam: " + name);
+                LOGGER.debug("Unable to parse grade for exam: " + name);
             }
 
             exams.add(exam);
