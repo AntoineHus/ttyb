@@ -2,10 +2,23 @@ apply plugin: 'java'
 apply plugin: 'jetty'
 apply plugin: 'application'
 
-sourceCompatibility = 1.5
+sourceCompatibility = 1.7
 version = '1.0'
 
 mainClassName = 'tb.cli.CLI'
+applicationDefaultJvmArgs = ["-Djava.util.logging.config.file=logging.properties"]
+
+
+task fatJar(type: Jar) {
+    manifest {
+        attributes 'Implementation-Title': 'ttyB Command Line Interface',
+                   'Implementation-Version': version,
+                   'Main-Class': 'tb.cli.CLI'
+    }
+    baseName = project.name + '-all'
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
 
 repositories {
     mavenCentral()
