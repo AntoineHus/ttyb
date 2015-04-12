@@ -79,13 +79,17 @@ public class CLI {
     }
 
     private static void displayUsage() {
-        System.out.println("usage: ttyb [--help] [--verbose] [--driver=<driver>] [--username=<username>]\n            [--password=<password>] <command> [<args>]");
+        System.out.println("usage: ttyb [--help] [--verbose] [--browser=<browser>] [--username=<username>]\n            [--password=<password>] <command> [<args>]");
 
-        System.out.println("\nAvailable commands are:");
+        System.out.println("\nAvailable commands:");
         for (String name : jc.getCommands().keySet()) {
             String[] row = { name, jc.getCommandDescription(name) };
             System.out.format("%-10s%s\n", row);
         }
+
+        System.out.println("\nAvailable browsers:");
+        System.out.format("%-10s%s\n", new String [] { "firefox",   "Use Firefox to parse internet pages"   });
+        System.out.format("%-10s%s\n", new String [] { "phantomjs", "Use PhantomJS to parse internet pages" });
 
         System.out.println("\nCredentials can be specified on the command line or in the TTYB_{USERNAME,PASSWORD}\nenvironment variables, otherwise they will be asked interactively.");
     }

@@ -14,7 +14,7 @@ public class MainCommand {
     @Parameter(names = "--verbose", description = "Display logs")
     public boolean verbose;
 
-    @Parameter(names = "--driver", description = "WebDriver to use")
+    @Parameter(names = "--browser", description = "Browser (WebDriver) to use")
     public String driver = "";
 
     @Parameter(names = "--username", description = "Username")
