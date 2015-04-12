@@ -24,7 +24,7 @@ public class CLI {
     private static JCommander jc;
 
     public static void main(String[] args) {
-        setLoggingLevel(Level.OFF);
+        setLoggingLevel(Level.ERROR);
 
         MainCommand mainCommand = new MainCommand();
         jc = new JCommander(mainCommand);
