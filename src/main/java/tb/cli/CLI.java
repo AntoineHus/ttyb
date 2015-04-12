@@ -7,13 +7,12 @@ import org.openqa.selenium.phantomjs.PhantomJSDriver;
 import org.openqa.selenium.phantomjs.PhantomJSDriverService;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
-import java.sql.SQLException;
 import java.util.Scanner;
 
 public class CLI {
     private static JCommander jc;
 
-    public static void main(String[] args) throws SQLException {
+    public static void main(String[] args) {
         MainCommand mainCommand = new MainCommand();
         jc = new JCommander(mainCommand);
 
@@ -21,17 +20,18 @@ public class CLI {
         jc.addCommand("courses", coursesCommand);
 
         try {
+            // Throws an exception if there is unknown args
             jc.parse(args);
+
+            // Throws an exception if no command is specified
+            if (jc.getParsedCommand() == null) {
+                throw new Exception();
+            }
         } catch (Exception e) {
             displayUsage();
             System.exit(1);
         }
 	
-        if (jc.getParsedCommand() == null) {
-	        displayUsage();
-	        System.exit(1);
-	    }
-
         if (mainCommand.help) {
             displayUsage();
             System.exit(0);
@@ -41,11 +41,7 @@ public class CLI {
             case "courses":
                 String[] credentials = getCredentials(mainCommand);
                 CoursesOutput coursesOutput = new CoursesOutput(getWebDriver(mainCommand.driver), credentials[0], credentials[1]);
-                if (coursesCommand.jsonOutput) {
-                    System.out.println(coursesOutput.toJSON());
-                } else {
-                    System.out.println(coursesOutput.toString());
-                }
+                System.out.println(coursesOutput.toString(coursesCommand.jsonOutput));
                 break;
 
             default:

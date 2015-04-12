@@ -1,5 +1,6 @@
 package tb.cli;
 
+import com.google.gson.Gson;
 import org.openqa.selenium.WebDriver;
 import tb.intranet.cas.exceptions.InvalidCredentialsException;
 import tb.intranet.cas.exceptions.UserNotLoggedException;
@@ -61,7 +62,12 @@ public class CoursesOutput {
         return  output;
     }
 
-    public String toJSON() {
-        return "";
+    public String toString(boolean json) {
+        if (json) {
+            Gson gson = new Gson();
+            return gson.toJson(getCourses());
+        } else {
+            return toString();
+        }
     }
 }
