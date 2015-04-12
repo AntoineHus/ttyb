@@ -12,9 +12,13 @@ The CLI executable will be found at `build/install/ttyb/bin/ttyb`.
 ## Usage
 
 ```sh
-usage: ttyb [--help] [--verbose] [--driver=<driver>] [--username=<username>]
+usage: ttyb [--help] [--verbose] [--browser=<browser>] [--username=<username>]
             [--password=<password>] <command> [<args>]
 
-Available commands are:
+Available commands:
 courses   Display registered courses and associated grades
+
+Available browsers:
+firefox   Use Firefox to parse internet pages
+phantomjs Use PhantomJS to parse internet pages
 ```
