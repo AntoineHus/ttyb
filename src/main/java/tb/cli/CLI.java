@@ -79,8 +79,7 @@ public class CLI {
 
         if (password == null) {
             System.out.print("Password: ");
-            Scanner sc = new Scanner(System.in);
-            password = sc.nextLine();
+            password = new String(System.console().readPassword());
         }
 
         return new String[] { username, password };
