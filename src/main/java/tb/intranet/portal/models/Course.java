@@ -4,6 +4,7 @@ public class Course {
     // Course description
     private String code;
     private String subject;
+    private AcademicTerm academicTerm;
 
     // ECTS system
     private Integer ectsMaximumCredits = 0;
@@ -29,6 +30,14 @@ public class Course {
 
     public String getSubject() {
         return subject;
+    }
+
+    public AcademicTerm getAcademicTerm() {
+        return academicTerm;
+    }
+
+    public void setAcademicTerm(AcademicTerm academicTerm) {
+        this.academicTerm = academicTerm;
     }
 
     public Integer getEctsMaximumCredits() {
@@ -92,6 +101,7 @@ public class Course {
         return "Course{" +
                 "code='" + code + '\'' +
                 ", subject='" + subject + '\'' +
+                ", academicTerm=" + academicTerm +
                 ", ectsMaximumCredits=" + ectsMaximumCredits +
                 ", ectsObtainedCredits=" + ectsObtainedCredits +
                 ", ectsGrade='" + ectsGrade + '\'' +

@@ -6,6 +6,7 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import tb.intranet.portal.models.AcademicTerm;
 import tb.intranet.portal.models.Course;
 
 import java.util.ArrayList;
@@ -81,5 +82,16 @@ public class CoursesPageParser {
         }
 
         return courses;
+    }
+
+    private AcademicTerm parseAcademicTerm(String cell) {
+        String cleanCell = cell.substring(0, cell.length() - 1).trim();
+
+        if (!cleanCell.isEmpty()) {
+            String name = cleanCell.split("\\.")[0];
+            return new AcademicTerm(name);
+        } else {
+            return null;
+        }
     }
 }
