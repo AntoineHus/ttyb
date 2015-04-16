@@ -12,7 +12,7 @@ import org.slf4j.LoggerFactory;
 import tb.intranet.cas.exceptions.InvalidCredentialsException;
 import tb.intranet.cas.exceptions.UserAlreadyLoggedException;
 import tb.intranet.cas.exceptions.UserNotLoggedException;
-import tb.intranet.portal.Portal;
+import tb.intranet.portal.WebDriverPortal;
 import tb.intranet.portal.models.AcademicYear;
 import tb.intranet.portal.models.Course;
 
@@ -117,7 +117,7 @@ public class CLI {
 
     private static void displayCourses(CoursesCommand coursesCommand, WebDriver driver, String username, String password) {
         ArrayList<Course> courses = new ArrayList<Course>();
-        Portal portal = new Portal(driver);
+        WebDriverPortal portal = new WebDriverPortal(driver);
 
         try {
             LOGGER.info("Authenticating with CAS...");
